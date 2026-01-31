@@ -1,0 +1,16 @@
+/* TEAM */
+Company: Termiticidal Pest Management
+Location: South Western Sydney, NSW, Australia
+Contact: info@termiticidal.com.au
+Phone: 0413 818 626
+Website: https://termiticidal.com.au
+
+/* SITE */
+Last update: 2025/01/31
+Standards: HTML5, CSS3, Tailwind CSS
+Components: Responsive Design, SEO Optimized
+Software: VS Code
+
+/* THANKS */
+Family-owned business serving South Western Sydney for over 13 years
+Providing professional, eco-friendly pest control solutions
