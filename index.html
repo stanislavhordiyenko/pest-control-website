@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Pest Control Sydney - Residential pest control services in South Western Sydney. Fixed pricing $199 (1 story) & $249 (2 story). Family-owned, eco-friendly, 13+ years experience. Termites, cockroaches, spiders, rodents. Same-day service available.">
-    <meta name="keywords" content="pest control sydney, pest control south western sydney, residential pest control, termite control, cockroach removal, spider control, rodent control, affordable pest control, eco-friendly pest control, licensed pest control, pest inspection, pest treatment">
+    <meta name="description" content="Professional Pest Control Sydney - Residential pest control services in South Western Sydney. Fixed pricing $199 (1 story) & $249 (2 story). Family-owned, eco-friendly, 13+ years experience. Ants, spiders, cockroaches. Same-day service available. 3 months warranty.">
+    <meta name="keywords" content="pest control sydney, pest control south western sydney, residential pest control, cockroach removal, spider control, ant control, affordable pest control, eco-friendly pest control, licensed pest control, pest inspection, pest treatment">
     <meta name="author" content="Pest Control Sydney">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pestcontrol.bsns.com.au/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Pest Control Sydney - Professional Residential Services | Fixed Pricing">
-    <meta property="og:description" content="Professional residential pest control services with fixed pricing. Protecting Sydney homes for over 13 years. $199 for 1 story, $249 for 2 story homes.">
+    <meta property="og:description" content="Professional residential pest control services with fixed pricing. Protecting Sydney homes for over 13 years. $199 for 1 story, $249 for 2 story homes. 3 months warranty. Ants, spiders & cockroaches.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pestcontrol.bsns.com.au/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1200&q=80">
@@ -58,15 +58,68 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Menu hover underline effect */
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* Mobile menu styles */
+        .mobile-menu-button {
+            display: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #2d5016;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width: 200px;
+            z-index: 100;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none !important;
+            }
+            .mobile-menu-button {
+                display: block;
+            }
+        }
+        /* Animated gradient background */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #2d5016, #4a7c2c, #6b9d3a, #87b556, #2d5016);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800">
     <!-- Header/Navigation -->
     <header class="bg-primary-green text-white sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <nav class="container mx-auto px-4 py-4 relative">
+            <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold">Pest Control Sydney</div>
-                <div class="hidden md:flex gap-6 items-center text-sm">
+                <div class="desktop-menu flex gap-6 items-center text-sm">
                     <a href="#home" class="hover:text-accent-green transition">Home</a>
                     <a href="#services" class="hover:text-accent-green transition">Services</a>
                     <a href="#pricing" class="hover:text-accent-green transition">Pricing</a>
@@ -74,30 +127,31 @@
                     <a href="#pests" class="hover:text-accent-green transition">Pests We Handle</a>
                     <a href="#faq" class="hover:text-accent-green transition">FAQ</a>
                     <a href="#contact" class="hover:text-accent-green transition">Contact</a>
+                    <a href="mailto:info@termiticidal.com.au" class="hover:text-accent-green transition">Email Us</a>
                 </div>
-                <div class="flex gap-4 items-center">
-                    <a href="tel:+61413818626" class="hover:text-accent-green transition font-bold">0413 818 626</a>
-                    <a href="mailto:info@termiticidal.com.au" class="hover:text-accent-green transition hidden md:inline">Email Us</a>
+                <div class="mobile-menu-button" onclick="toggleMobileMenu()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="5" r="1.5"/>
+                        <circle cx="12" cy="12" r="1.5"/>
+                        <circle cx="12" cy="19" r="1.5"/>
+                    </svg>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#home" onclick="toggleMobileMenu()">Home</a>
+                    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+                    <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
+                    <a href="#process" onclick="toggleMobileMenu()">Our Process</a>
+                    <a href="#pests" onclick="toggleMobileMenu()">Pests We Handle</a>
+                    <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+                    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+                    <a href="mailto:info@termiticidal.com.au" onclick="toggleMobileMenu()">Email Us</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative bg-gradient-to-r from-primary-green to-secondary-green text-white py-20 md:py-32 overflow-hidden">
-        <!-- Background Image Overlay -->
-        <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Professional pest control technician" 
-                 class="w-full h-full object-cover">
-        </div>
-        <!-- Background Image Overlay -->
-        <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Professional pest control technician" 
-                 class="w-full h-full object-cover">
-        </div>
-        
+    <section id="home" class="relative animated-gradient text-white py-20 md:py-32 overflow-hidden">
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6">Professional Residential Pest Control Sydney</h1>
@@ -133,7 +187,7 @@
                         We are fully licensed and insured, using the most safe, eco-friendly, advanced products on the market for the removal of pests from your home. Our licensed pest control technicians use approved, environmentally friendly chemicals that are both safe for human health and highly effective in pest management. Every product we use meets Australian standards, giving you reassurance of a high-quality and safe service.
                     </p>
                     <p class="text-lg mb-6 leading-relaxed">
-                        Our residential pest control services focus on long-term protection for your home and family, offering customized solutions to handle and prevent infestations of various types including termites, cockroaches, spiders, rodents, ants, bed bugs, fleas, ticks, silverfish, and more. We understand the importance of creating a safe environment for you and your family.
+                        Our residential pest control services focus on long-term protection for your home and family, offering customized solutions to handle and prevent infestations of ants, spiders, and cockroaches. We understand the importance of creating a safe environment for you and your family. All services come with a 3 months warranty.
                     </p>
                 </div>
             </div>
@@ -249,7 +303,7 @@
                             </li>
                             <li class="flex items-start">
                                 <span class="text-accent-green mr-2">✓</span>
-                                <span>Satisfaction guaranteed</span>
+                                <span>3 months warranty included</span>
                             </li>
                         </ul>
                         <a href="sms:+61413818626&body=Hi! I would like to book pest control for my 1 story house for $199. My home address is: " 
@@ -279,7 +333,7 @@
                             </li>
                             <li class="flex items-start">
                                 <span class="text-accent-green mr-2">✓</span>
-                                <span>Satisfaction guaranteed</span>
+                                <span>3 months warranty included</span>
                             </li>
                         </ul>
                         <a href="sms:+61413818626&body=Hi! I would like to book pest control for my 2 story house for $249. My home address is: " 
@@ -324,55 +378,19 @@
     <section id="pests" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary-green">Pests We Control & Eliminate</h2>
-            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Our comprehensive pest control services target all common household pests found in Sydney homes. We use targeted treatments specific to each pest type for maximum effectiveness.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Termites</h3>
-                    <p class="text-sm opacity-80">White ants inspection & treatment</p>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Our comprehensive pest control services target the most common household pests found in Sydney homes. We use targeted treatments specific to each pest type for maximum effectiveness. All treatments include a 3 months warranty.</p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                <div class="text-center p-8 bg-white hover:bg-secondary-green hover:text-white transition shadow-lg">
+                    <h3 class="font-bold text-2xl mb-3">Cockroaches</h3>
+                    <p class="text-base opacity-80">German & Australian roaches - Complete eradication treatment</p>
                 </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Cockroaches</h3>
-                    <p class="text-sm opacity-80">German & Australian roaches</p>
+                <div class="text-center p-8 bg-white hover:bg-secondary-green hover:text-white transition shadow-lg">
+                    <h3 class="font-bold text-2xl mb-3">Spiders</h3>
+                    <p class="text-base opacity-80">Redback, funnel-web & more - Safe removal & prevention</p>
                 </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Spiders</h3>
-                    <p class="text-sm opacity-80">Redback, funnel-web & more</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Rodents</h3>
-                    <p class="text-sm opacity-80">Mice & rat control</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Ants</h3>
-                    <p class="text-sm opacity-80">All species including fire ants</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Bed Bugs</h3>
-                    <p class="text-sm opacity-80">Complete eradication treatment</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Fleas & Ticks</h3>
-                    <p class="text-sm opacity-80">Pet-safe flea treatments</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Silverfish</h3>
-                    <p class="text-sm opacity-80">Long-lasting protection</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Wasps & Bees</h3>
-                    <p class="text-sm opacity-80">Nest removal services</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Mosquitoes</h3>
-                    <p class="text-sm opacity-80">Breeding site treatment</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Moths</h3>
-                    <p class="text-sm opacity-80">Pantry & clothes moths</p>
-                </div>
-                <div class="text-center p-6 bg-white hover:bg-secondary-green hover:text-white transition shadow">
-                    <h3 class="font-bold text-lg mb-2">Beetles</h3>
-                    <p class="text-sm opacity-80">Carpet & wood beetles</p>
+                <div class="text-center p-8 bg-white hover:bg-secondary-green hover:text-white transition shadow-lg">
+                    <h3 class="font-bold text-2xl mb-3">Ants</h3>
+                    <p class="text-base opacity-80">All species including fire ants - Long-term protection</p>
                 </div>
             </div>
         </div>
@@ -420,12 +438,7 @@
                 
                 <div class="bg-gray-50 p-6 shadow-lg border-l-4 border-secondary-green">
                     <h3 class="text-xl font-bold mb-3 text-primary-green">Do you offer a warranty or guarantee?</h3>
-                    <p class="text-gray-700 leading-relaxed">Yes, we stand by our work with a satisfaction guarantee. If pests return between scheduled treatments, we'll come back and re-treat the affected areas at no extra charge. Warranty terms depend on the type of treatment and pest, which our technicians will explain during your service.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 shadow-lg border-l-4 border-secondary-green">
-                    <h3 class="text-xl font-bold mb-3 text-primary-green">Can you treat termites with your standard pest control service?</h3>
-                    <p class="text-gray-700 leading-relaxed">Our standard residential pest control service targets common household pests. Termite control requires a specialized inspection and treatment plan. We offer comprehensive termite inspections, treatments, and ongoing monitoring. Contact us for a separate termite inspection and quote.</p>
+                    <p class="text-gray-700 leading-relaxed">Yes, all our pest control treatments come with a 3 months warranty. Our service covers ants, spiders, and cockroaches. If these pests return within the warranty period, we'll come back and re-treat the affected areas at no extra charge. We stand by our work with complete satisfaction guaranteed.</p>
                 </div>
                 
                 <div class="bg-gray-50 p-6 shadow-lg border-l-4 border-secondary-green">
@@ -493,7 +506,7 @@
             </div>
             <div class="border-t border-secondary-green pt-6 text-center text-sm">
                 <p class="mb-2">ABN 21 626 518 250</p>
-                <p class="mb-2">© 2025 Pest Control Sydney - Residential Services. All Rights Reserved.</p>
+                <p class="mb-2">© 2026 Pest Control Sydney - Residential Services. All Rights Reserved.</p>
                 <p>Powered by <a href="https://termiticidal.com.au/" class="font-bold hover:text-accent-green underline">Termiticidal Pest Management</a> - For commercial services and full range, visit our main website.</p>
             </div>
         </div>
@@ -531,7 +544,7 @@
                 "closes": "17:00"
             }
         ],
-        "description": "Professional residential pest control services in South Western Sydney. Fixed pricing $199-$249. Family-owned business with 13+ years experience. Licensed, insured, eco-friendly pest management for termites, cockroaches, spiders, rodents and more.",
+        "description": "Professional residential pest control services in South Western Sydney. Fixed pricing $199-$249 with 3 months warranty. Family-owned business with 13+ years experience. Licensed, insured, eco-friendly pest management for ants, cockroaches, and spiders.",
         "areaServed": {
             "@type": "GeoCircle",
             "geoMidpoint": {
@@ -543,10 +556,9 @@
         },
         "serviceType": [
             "Pest Control",
-            "Termite Control",
             "Cockroach Control",
             "Spider Control",
-            "Rodent Control",
+            "Ant Control",
             "Residential Pest Management"
         ]
     }
@@ -597,6 +609,20 @@
     </script>
 
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const button = document.querySelector('.mobile-menu-button');
+            if (menu && button && !menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+        
         document.addEventListener("DOMContentLoaded", function() {
             // 1. Detect the Operating System
             const ua = navigator.userAgent || navigator.vendor || window.opera;
